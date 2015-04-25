@@ -26,7 +26,13 @@
 				<ul class="clearfix">
 					<li><a class="what" href="#">What ?</a></li>
 					<li><a class="new" href="#">+ New Game</a></li>
+
 				</ul>
+				<ul>	
+					<li id="hint"></li>
+					<li id="error"></li>
+				</ul>
+				
 			</nav>
 			
 			<!-- Modal Information Box -->
@@ -53,8 +59,9 @@
 
 		<section class="game"> <!-- Guessing Section -->
 			
+			<div >				
 			<h2 id="feedback">Make your Guess!</h2>
-
+			</div>
 			<form>
 				<input type="text" name="userGuess" id="userGuess" class="text" maxlength="3" autocomplete="off" placeholder="Enter your Guess" required/>
       			<input type="submit" id="guessButton" class="button" name="submit" value="Guess"/>
@@ -64,6 +71,9 @@
 			
 			<ul id="guessList" class="guessBox clearfix">
 
+			
+			
+				
 			</ul>
 
 		</section>
