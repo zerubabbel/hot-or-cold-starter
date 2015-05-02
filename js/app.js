@@ -1,27 +1,15 @@
-
 $(document).ready(function(){
-	
-	/*--- Display information modal box ---*/
-  	$(".what").click(function(){
-    	$(".overlay").fadeIn(1000);
+    
+    /*--- Display information modal box ---*/
+    $(".what").click(function(){
+        $(".overlay").fadeIn(1000);
 
-  	});
+    });
 
-  	/*--- Hide information modal box ---*/
-  	$(".close").click(function(){
-  		$(".overlay").fadeOut(1000);
-  	});
-
-    $('#userGuess').focus(function () {
-    if ($(this).val() == $(this).attr("value")) {
-        $(this).val("");
-    }
-}).blur(function () {
-    if ($(this).val() === "") {
-        $(this).val($(this).attr("value"));
-    }
-});
-
+    /*--- Hide information modal box ---*/
+    $(".close").click(function(){
+        $(".overlay").fadeOut(1000);
+    });
 
 //make some initial variables first of all
 var rightNumber = Math.floor((Math.random() * 100 +1) );
@@ -41,25 +29,24 @@ function getNumber() {
 
 //call the function
 
-getNumber();
-
+getNumber(); 
 //now make the guessing function
 
 //greater than -1 because that will mean that it will be in it already
 function game() {
-	var guess = parseInt($('#userGuess').val());
-	if (guess !== null && $.isNumeric(guess) && (guess < 101) && (guess > 0)){
+    var guess = parseInt($('#userGuess').val());
+    if (guess !== null && $.isNumeric(guess) && (guess < 101) && (guess > 0)){
             $('#userGuess').val('');
             guessCount += 1;
             if ($.inArray(guess,guesses) > -1) {
-            	$('#error').html('ERROR: You guessed that number already. Please try a new number.');
+                $('#error').html('ERROR: You guessed that number already. Please try a new number.');
           } else {
             guesses.push(guess);
             distance = Math.abs(rightNumber - guess);
             previousDistance = Math.abs(rightNumber - guesses[guesses.length - 2]);
             $('#error').html('');
             if (guess === rightNumber) {
-                $('#hint').html('Congrats! You got it in ' + guessCount + ' guesses! The secret number was ' + rightNumber + "!");
+                $('#hint').html('Congrats! You got it in ' + (guesses.length +2) + ' guesses! The secret number was ' + rightNumber + "!");
             } else //is NAN is because in this case there would have been no previous distance.
 
             {
@@ -102,7 +89,7 @@ function game() {
 
 
 $('.new').click(function (e) {
-            e.preventDefault();     $('body').css("background-color", "#222");
+            e.preventDefault();
             rightNumber = Math.floor((Math.random() * 100) + 1);
             guessCount = 0;
              console.log("The secret number is: " + rightNumber);
@@ -120,5 +107,4 @@ $('.new').click(function (e) {
 
 
 });
-
 
