@@ -11,6 +11,9 @@ $(document).ready(function(){
         $(".overlay").fadeOut(1000);
     });
 
+$("form").submit(function(event){
+        
+        event.preventDefault();
 //make some initial variables first of all
 var rightNumber = Math.floor((Math.random() * 100 +1) );
 console.log("The secret number is: " + rightNumber);
@@ -27,6 +30,7 @@ function getNumber() {
    $("#guessButton").click(game);
 };
 
+$("ul#guessList").append("<li>" + userChoice + "</li>");
 //call the function
 
 getNumber(); 
@@ -108,3 +112,28 @@ $('.new').click(function (e) {
 
 });
 
+//$(document).ready(function(){
+    var randomNumber = Math.random()*10;
+    randomNumber = Math.round(randomNumber);
+    
+    $("button").click(function(){
+        var userInput = prompt("Please input any number from 0 to 9","");
+        if (randomNumber == userInput) {
+        alert("you got it, thank you for playing");
+        }
+        else if (randomNumber - userInput == 1 || userInput - randomNumber == 1) {
+        alert("hotter");
+        }
+        else if (randomNumber - userInput == 2 || userInput - randomNumber == 2) {
+        alert("hot");
+        }
+        else if (userInput > 10 || isNaN(userInput)) {
+        alert("please use number from 0 to 9 only");
+        }
+        else {
+        alert("cold");    
+        }
+        
+    
+    });
+});
